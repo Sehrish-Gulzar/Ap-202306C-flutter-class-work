@@ -1,0 +1,25 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "sehrish",
+      "surname": "gulzar",
+      "age": 23,
+      "school": "Public School"
+    },
+    {
+      "id": "2",
+      "username": "maryam",
+      "surname": "sheikh",
+      "age": 24,
+      "school": "Public School"
+    },
+    {
+      "id": "abfe",
+      "username": "khan",
+      "surname": "khan khan",
+      "age": "20",
+      "school": "city school"
+    }
+  ]
+}
