@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_project/listview_builder.dart';
-import 'package:flutter_project/widgets/custom_container.dart';
+import 'package:flutter_project_six_c/widgets/custom_container.dart';
 
 import 'form.dart';
 import 'gallery.dart';
+import 'listview_builder.dart';
 import 'widgets/resuable.dart';
 
 class MyBottomNavihationBar extends StatefulWidget {
@@ -47,25 +47,25 @@ class _MyBottomNavihationBarState extends State<MyBottomNavihationBar> {
           cc: Colors.black,
         ),
       ],
-    )
+    ),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        bottomNavigationBar: resuableBN(
-          bg: Colors.yellow,
-          selectedFont: 20,
-          selectIndex: selectIndex,
-          myCallback: changeIndex,
-          btItems: [
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-            BottomNavigationBarItem(icon: Icon(Icons.image), label: "Gallery"),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.settings), label: "Setting"),
-            BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
-          ],
-        ),
-        body: screens[selectIndex]);
+      bottomNavigationBar: resuableBN(
+        bg: Colors.yellow,
+        selectedFont: 20,
+        selectIndex: selectIndex,
+        myCallback: changeIndex,
+        btItems: [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          BottomNavigationBarItem(icon: Icon(Icons.image), label: "Gallery"),
+          BottomNavigationBarItem(icon: Icon(Icons.settings), label: "Setting"),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
+        ],
+      ),
+      body: screens[selectIndex],
+    );
   }
 }

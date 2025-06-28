@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_project/homepage.dart';
+
+import 'homepage.dart';
 
 class MyForm extends StatefulWidget {
   const MyForm({super.key});
@@ -22,10 +23,7 @@ class _MyFormState extends State<MyForm> {
     return Scaffold(
       backgroundColor: bg,
       appBar: AppBar(
-        leading: IconButton(
-          onPressed: () {},
-          icon: Icon(Icons.menu),
-        ),
+        leading: IconButton(onPressed: () {}, icon: Icon(Icons.menu)),
         title: Text("SignUp Form"),
         centerTitle: true,
         backgroundColor: Colors.blue,
@@ -48,9 +46,7 @@ class _MyFormState extends State<MyForm> {
                 child: Text("Container Button"),
               ),
             ),
-            SizedBox(
-              height: 10,
-            ),
+            SizedBox(height: 10),
             Center(
               child: Form(
                 key: formkey,
@@ -60,18 +56,19 @@ class _MyFormState extends State<MyForm> {
                       controller: usernameController,
                       keyboardType: TextInputType.text,
                       decoration: InputDecoration(
-                          hintStyle: TextStyle(
-                            color: Colors.red,
-                            fontWeight: FontWeight.bold,
-                          ),
-                          filled: true,
-                          fillColor: Colors.red.withOpacity(0.1),
-                          prefixIconColor: Colors.red,
-                          prefixIcon: Icon(Icons.person),
-                          hintText: "Enter your username",
-                          border: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(20)))),
+                        hintStyle: TextStyle(
+                          color: Colors.red,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        filled: true,
+                        fillColor: Colors.red.withOpacity(0.1),
+                        prefixIconColor: Colors.red,
+                        prefixIcon: Icon(Icons.person),
+                        hintText: "Enter your username",
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                        ),
+                      ),
                       validator: (value) {
                         if (value == "" || value!.isEmpty) {
                           return "username is required";
@@ -79,9 +76,7 @@ class _MyFormState extends State<MyForm> {
                         return null;
                       },
                     ),
-                    SizedBox(
-                      height: 10,
-                    ),
+                    SizedBox(height: 10),
                     TextFormField(
                       controller: emailController,
                       keyboardType: TextInputType.emailAddress,
@@ -97,25 +92,21 @@ class _MyFormState extends State<MyForm> {
                         ),
                         border: OutlineInputBorder(
                           // gapPadding: 20,
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(20),
-                          ),
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
                         ),
                       ),
                       validator: (value) {
                         if (value == "" || value!.isEmpty) {
                           return "email is required";
                         } else if (!RegExp(
-                                r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$')
-                            .hasMatch(value)) {
+                          r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',
+                        ).hasMatch(value)) {
                           return "invalid email format";
                         }
                         return null;
                       },
                     ),
-                    SizedBox(
-                      height: 10,
-                    ),
+                    SizedBox(height: 10),
                     TextFormField(
                       controller: passController,
                       obscureText: true,
@@ -128,11 +119,11 @@ class _MyFormState extends State<MyForm> {
                         prefixIcon: Icon(Icons.password),
                         hintText: "Enter your password",
                         hintStyle: TextStyle(
-                            color: Colors.blue, fontWeight: FontWeight.bold),
+                          color: Colors.blue,
+                          fontWeight: FontWeight.bold,
+                        ),
                         border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(20),
-                          ),
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
                         ),
                       ),
                       validator: (value) {
@@ -151,7 +142,7 @@ class _MyFormState extends State<MyForm> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text("Already have accocunt?"),
-                  TextButton(onPressed: () {}, child: Text("login"))
+                  TextButton(onPressed: () {}, child: Text("login")),
                 ],
               ),
             ),
@@ -159,19 +150,24 @@ class _MyFormState extends State<MyForm> {
               padding: EdgeInsets.all(15),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                    // padding: EdgeInsets.all(15),
-                    elevation: 10,
-                    backgroundColor: Colors.amberAccent),
+                  // padding: EdgeInsets.all(15),
+                  elevation: 10,
+                  backgroundColor: Colors.amberAccent,
+                ),
                 onPressed: () {
                   setState(() {
                     if (formkey.currentState!.validate()) {
                       Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => HomePage(
-                                  email: emailController.text,
-                                  password: passController.text,
-                                  username: usernameController.text)));
+                        context,
+                        MaterialPageRoute(
+                          builder:
+                              (context) => HomePage(
+                                email: emailController.text,
+                                password: passController.text,
+                                username: usernameController.text,
+                              ),
+                        ),
+                      );
                     }
                   });
                 },
